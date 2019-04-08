@@ -17,10 +17,12 @@ double number;
  PhysicalNumber PhysicalNumber::operator+ (const PhysicalNumber &a) const {return *this;}
  PhysicalNumber PhysicalNumber::operator+= (const PhysicalNumber &a) const{return *this;}
  PhysicalNumber PhysicalNumber::operator++ () const{return *this;}
+ PhysicalNumber PhysicalNumber::operator++(int a) const{return *this;}
  PhysicalNumber PhysicalNumber::operator+ () const{return *this;}
  PhysicalNumber PhysicalNumber::operator- (const PhysicalNumber &a) const{return *this;}
  PhysicalNumber PhysicalNumber::operator-= (const PhysicalNumber &a) const{return *this;}
  PhysicalNumber PhysicalNumber::operator-- () const{return *this;}
+ PhysicalNumber PhysicalNumber::operator--(int a) const{return *this;}
  PhysicalNumber PhysicalNumber::operator- () const{return *this;}
  bool PhysicalNumber::operator<(const PhysicalNumber &a){return true;}
  bool PhysicalNumber::operator>(const PhysicalNumber &a){return true;}
@@ -37,6 +39,5 @@ double number;
 	return is;
   }
 };
-
 
 
