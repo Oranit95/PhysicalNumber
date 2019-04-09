@@ -108,11 +108,13 @@ int main() {
     .CHECK_OUTPUT(--e1,"5[cm]")
     .CHECK_OUTPUT(--f2, "-8[m]")
     .CHECK_OUTPUT(--g2, "-0.2[km]")
+
+    .CHECK_OK(istringstream("3[ton]") >> f1)
+    .CHECK_OUTPUT((f1 += PhysicalNumber(1000, Unit::KG)), "4[ton]")
+    .CHECK_OK(istringstream("1[kg]") >> e2)
+    .CHECK_OUTPUT((e2 += PhysicalNumber(1000, Unit::G)), "2[kg]")
     
-    .CHECK_OK(istringstream("55[cm]") >> f1)
-    .CHECK_OUTPUT((f1 += PhysicalNumber(10, Unit::M)), "1055[cm]")
-    .CHECK_OK(istringstream("40[m]") >> e2)
-    .CHECK_OUTPUT((e2 += PhysicalNumber(850, Unit::CM)), "48.5[m]")
+   
 
     .setname("Time Test")
     .CHECK_OUTPUT(h, "60[sec]")
@@ -152,10 +154,11 @@ int main() {
     .CHECK_OUTPUT(--i, "720[min]")
     .CHECK_OUTPUT(--j, "11.45[hour]")
 
-    .CHECK_OK(istringstream("120[sec]") >> i)
-    .CHECK_OUTPUT((i += PhysicalNumber(320, Unit::MIN)), "19320[sec]")
-    .CHECK_OK(istringstream("1[hour]") >> j)
-    .CHECK_OUTPUT((e2 += PhysicalNumber(90, Unit::MIN)), "2.5[hour]")
+    .CHECK_OK(istringstream("55[cm]") >> i)
+    .CHECK_OUTPUT((i += PhysicalNumber(10, Unit::M)), "1055[cm]")
+    .CHECK_OK(istringstream("40[m]") >> j)
+    .CHECK_OUTPUT((j += PhysicalNumber(850, Unit::CM)), "48.5[m]")
+
 
     .setname("Weight Test")
     .CHECK_OUTPUT(k, "50[g]")
@@ -194,11 +197,12 @@ int main() {
     .CHECK_OUTPUT(--m,"2.00005[ton]")
     .CHECK_OUTPUT(--k, "-100000[g]")
     .CHECK_OUTPUT(--l, "100.05[kg]")
+    
+    .CHECK_OK(istringstream("120[sec]") >> k)
+    .CHECK_OUTPUT((k += PhysicalNumber(320, Unit::MIN)), "19320[sec]")
+    .CHECK_OK(istringstream("1[hour]") >> m)
+    .CHECK_OUTPUT((m += PhysicalNumber(90, Unit::MIN)), "2.5[hour]")
 
-    .CHECK_OK(istringstream("3[ton]") >> k)
-    .CHECK_OUTPUT((k += PhysicalNumber(1000, Unit::KG)), "4[ton]")
-    .CHECK_OK(istringstream("1[kg]") >> m)
-    .CHECK_OUTPUT((m += PhysicalNumber(1000, Unit::G)), "2[kg]")
 
     .CHECK_THROWS(e1+h)
     .CHECK_THROWS(f1+i)
