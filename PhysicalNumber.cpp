@@ -112,8 +112,9 @@ double value;
     bool error = false;
     int unitStart = s.find("[");
     int unitEnd= s.find("]");
-    if(unitStart<0||unitEnd<0) error = true;
+    if(unitStart<0||unitEnd<0||unitEnd!=s.length()-1) error = true;
     string newUnit=s.substr(unitStart+1,unitEnd-unitStart-1);	
+    if(!error){
     if(newUnit.compare("cm")== 0 || newUnit.compare("CM")== 0) p.u = Unit::CM;
     else if (newUnit.compare("m")== 0 || newUnit.compare("M")== 0) p.u = Unit::M;
     else if (newUnit.compare("km")== 0 || newUnit.compare("KM")== 0) p.u = Unit::KM;
@@ -124,6 +125,7 @@ double value;
     else if (newUnit.compare("kg")== 0 || newUnit.compare("KG")== 0) p.u = Unit::KG;
     else if (newUnit.compare("ton")== 0 || newUnit.compare("TON")== 0) p.u = Unit::TON;
     else  error=true;
+    }
     double newValue;
     if (error) auto errorState = is.rdstate();
     else {
