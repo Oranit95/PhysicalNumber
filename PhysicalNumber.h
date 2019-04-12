@@ -14,13 +14,13 @@ class PhysicalNumber{
  PhysicalNumber operator+(const PhysicalNumber &a) const ;
  PhysicalNumber operator+=(const PhysicalNumber &a) ;
  PhysicalNumber operator++() ;
- PhysicalNumber operator++(int a) ;
+ PhysicalNumber operator++(int) ;
  PhysicalNumber operator+() const;
  PhysicalNumber operator-(const PhysicalNumber &a) const;
  PhysicalNumber operator-() ;
  PhysicalNumber operator-=(const PhysicalNumber &a) ;
  PhysicalNumber operator--() ;
- PhysicalNumber operator--(int a) ;
+ PhysicalNumber operator--(int) ;
  bool operator<(const PhysicalNumber &a);
  bool operator>(const PhysicalNumber &a);
  bool operator<=(const PhysicalNumber &a);
