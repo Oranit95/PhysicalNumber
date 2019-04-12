@@ -113,7 +113,12 @@ double value;
     cout<<"input is "<<s<<endl;
     int unitStart = s.find("[");
     int unitEnd= s.find("]");
-    if(unitStart<0||unitEnd<0) throw std::invalid_argument( "Not suitable input in brackets!!!" );
+    if(unitStart<0||unitEnd<0) }
+	 	     cout<<"input that caused brackets exception is "<<s<<endl;
+
+	 throw std::invalid_argument( "Not suitable input in brackets!!!" );
+
+	 [
     double newValue;
     bool isNumber=true;
 	//checking if the string before the '[' is double
