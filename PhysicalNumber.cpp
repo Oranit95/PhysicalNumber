@@ -110,6 +110,7 @@ double value;
   istream& operator>>(istream& is, PhysicalNumber& p){
     string s;
     is>>s;
+	  cout<<"input is "<<s<<endl;
     int unitStart = s.find("[");
     int unitEnd= s.find("]");
     if(unitStart<0||unitEnd<0) throw std::invalid_argument( "Not suitable input!!!" );
@@ -127,6 +128,8 @@ double value;
 	//done checking 
     if (!isNumber)  throw std::invalid_argument( "Not suitable input!!!" );
     istringstream(s.substr(0,unitStart))>>newValue;
+	  	  cout<<"value is: "<<newValue<<endl;
+
     p.value=newValue;
     string newUnit=s.substr(unitStart+1,unitEnd-unitStart-1);	
     if(newUnit.compare("cm")== 0 || newUnit.compare("CM")== 0) p.u = Unit::CM;
