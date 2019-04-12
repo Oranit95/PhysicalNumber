@@ -33,7 +33,7 @@ double value;
 	value++;
 	return *this;
  }
- PhysicalNumber PhysicalNumber::operator++(int a) {
+ PhysicalNumber PhysicalNumber::operator++(int) {
 	PhysicalNumber pN(this->value,this->u);
         this->value++;
 	return pN;
@@ -53,7 +53,7 @@ double value;
         double sum = value-1;
 	return PhysicalNumber(sum,this->u);
  }
- PhysicalNumber PhysicalNumber::operator--(int a) {
+ PhysicalNumber PhysicalNumber::operator--(int) {
        PhysicalNumber pN(this->value,this->u);
         this->value--;
 	return pN;
