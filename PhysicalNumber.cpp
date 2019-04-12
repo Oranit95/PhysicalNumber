@@ -94,15 +94,15 @@ double value;
 
    ostream& operator<<(ostream& os, const PhysicalNumber& p){
 
-	if(p.u == Unit::G) os<<p.value<<"[g]"<<endl;
-	else  if(p.u == Unit::KG) os<<p.value<<"[kg]"<<endl;
-        else  if(p.u == Unit::TON) os<<p.value<<"[ton]"<<endl;
-        else  if(p.u == Unit::CM) os<<p.value<<"[c]"<<endl;
-        else  if(p.u == Unit::M) os<<p.value<<"[m]"<<endl;
-        else  if(p.u == Unit::KM) os<<p.value<<"[km]"<<endl;
-        else  if(p.u == Unit::KG) os<<p.value<<"[sec]"<<endl;
-        else  if(p.u == Unit::KG) os<<p.value<<"[min]"<<endl;
-        else  if(p.u == Unit::KG) os<<p.value<<"[hour]"<<endl;
+	if(p.u == Unit::G) os<<p.value<<"[g]";
+	else  if(p.u == Unit::KG) os<<p.value<<"[kg]";
+        else  if(p.u == Unit::TON) os<<p.value<<"[ton]";
+        else  if(p.u == Unit::CM) os<<p.value<<"[c]";
+        else  if(p.u == Unit::M) os<<p.value<<"[m]";
+        else  if(p.u == Unit::KM) os<<p.value<<"[km]";
+        else  if(p.u == Unit::KG) os<<p.value<<"[sec]";
+        else  if(p.u == Unit::KG) os<<p.value<<"[min]";
+        else  if(p.u == Unit::KG) os<<p.value<<"[hour]";
 
 	return os;
   }
