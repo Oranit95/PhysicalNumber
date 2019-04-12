@@ -114,7 +114,7 @@ double value;
     int unitStart = s.find("[");
     int unitEnd= s.find("]");
     if(unitStart<0||unitEnd<0) {
-	 throw std::invalid_argument( "Not suitable input in brackets!!!" );
+	 throw std::invalid_argument( "Not suitable input in brackets:   "+s );
     }
     double newValue;
     bool isNumber=true;
@@ -128,7 +128,7 @@ double value;
        dotCount += (c == '.');
     }
 	//done checking 
-    if (!isNumber)  throw std::invalid_argument( "Not suitable input in value!!!" );
+    if (!isNumber)  throw std::invalid_argument( "Not suitable input in value!!!" + s );
     istringstream(s.substr(0,unitStart))>>newValue;
     p.value=newValue;
     string newUnit=s.substr(unitStart+1,unitEnd-unitStart-1);	
@@ -141,7 +141,7 @@ double value;
     else if (newUnit.compare("g")== 0 || newUnit.compare("G")== 0) p.u = Unit::G;
     else if (newUnit.compare("kg")== 0 || newUnit.compare("KG")== 0) p.u = Unit::KG;
     else if (newUnit.compare("ton")== 0 || newUnit.compare("TON")== 0) p.u = Unit::TON;
-    else   throw std::invalid_argument( "Not suitable input in name!!!" );
+    else   throw std::invalid_argument( "Not suitable input in name!!!" + s );
 	  
     return is;
   }
