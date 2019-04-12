@@ -136,8 +136,7 @@ double value;
 		  return is;
 	  }
             p.value=newValue;
-        }
-   }  
+    }  
     return is;
   }
 
