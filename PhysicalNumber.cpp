@@ -110,10 +110,10 @@ double value;
   istream& operator>>(istream& is, PhysicalNumber& p){
     string s;
     is>>s;
-	  cout<<"input is "<<s<<endl;
+    cout<<"input is "<<s<<endl;
     int unitStart = s.find("[");
     int unitEnd= s.find("]");
-    if(unitStart<0||unitEnd<0) throw std::invalid_argument( "Not suitable input!!!" );
+    if(unitStart<0||unitEnd<0) throw std::invalid_argument( "Not suitable input in brackets!!!" );
     double newValue;
     bool isNumber=true;
 	//checking if the string before the '[' is double
@@ -126,7 +126,7 @@ double value;
        dotCount += (c == '.');
     }
 	//done checking 
-    if (!isNumber)  throw std::invalid_argument( "Not suitable input!!!" );
+    if (!isNumber)  throw std::invalid_argument( "Not suitable input in value!!!" );
     istringstream(s.substr(0,unitStart))>>newValue;
 	  	  cout<<"value is: "<<newValue<<endl;
 
@@ -141,7 +141,7 @@ double value;
     else if (newUnit.compare("g")== 0 || newUnit.compare("G")== 0) p.u = Unit::G;
     else if (newUnit.compare("kg")== 0 || newUnit.compare("KG")== 0) p.u = Unit::KG;
     else if (newUnit.compare("ton")== 0 || newUnit.compare("TON")== 0) p.u = Unit::TON;
-    else   throw std::invalid_argument( "Not suitable input!!!" );
+    else   throw std::invalid_argument( "Not suitable input in name!!!" );
 	  
     return is;
   }
