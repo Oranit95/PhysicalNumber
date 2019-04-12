@@ -110,7 +110,6 @@ double value;
   istream& operator>>(istream& is, PhysicalNumber& p){
     string s;
     is>>s;
-    cout<<"input is "<<s<<endl;
     int unitStart = s.find("[");
     int unitEnd= s.find("]");
     if(unitStart<0||unitEnd<0) {
