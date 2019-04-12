@@ -22,7 +22,7 @@ double value;
 
  PhysicalNumber PhysicalNumber::operator+ (const PhysicalNumber &a) const {
 	double sum = change(*this, a)+value;
-	return PhysicalNumber(sum,u);
+	return PhysicalNumber(sum,this->u);
  }
 
  PhysicalNumber PhysicalNumber::operator+= (const PhysicalNumber &a)  {
@@ -59,7 +59,7 @@ double value;
 	return pN;
  }
  PhysicalNumber PhysicalNumber::operator- (){
-        return  PhysicalNumber(value*-1,u);
+        return  PhysicalNumber(value*-1,this->u);
  }
  bool PhysicalNumber::operator<(const PhysicalNumber &a){
         double num = change(*this, a);
