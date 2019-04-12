@@ -139,6 +139,10 @@ double value;
     else if (newUnit.compare("kg")== 0 || newUnit.compare("KG")== 0) p.u = Unit::KG;
     else if (newUnit.compare("ton")== 0 || newUnit.compare("TON")== 0) p.u = Unit::TON;
     else   throw std::invalid_argument( "Not suitable input!!!" );
+	  cout<"p value is :"<<p.value<<endl;
+	  cout<<"p unit is :"<<p.u<<endl;
+	  cout<<"s is :"<<s<<endl;
+	  
     return is;
   }
 
