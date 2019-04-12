@@ -100,9 +100,9 @@ double value;
         else  if(p.u == Unit::CM) os<<p.value<<"[cm]";
         else  if(p.u == Unit::M) os<<p.value<<"[m]";
         else  if(p.u == Unit::KM) os<<p.value<<"[km]";
-        else  if(p.u == Unit::KG) os<<p.value<<"[sec]";
-        else  if(p.u == Unit::KG) os<<p.value<<"[min]";
-        else  if(p.u == Unit::KG) os<<p.value<<"[hour]";
+        else  if(p.u == Unit::SEC) os<<p.value<<"[sec]";
+        else  if(p.u == Unit::MIN) os<<p.value<<"[min]";
+        else  if(p.u == Unit::HOUR) os<<p.value<<"[hour]";
 
 	return os;
   }
