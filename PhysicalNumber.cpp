@@ -34,8 +34,8 @@ double value;
 	return *this;
  }
  PhysicalNumber PhysicalNumber::operator++(int) {//postfix ++
-	PhysicalNumber pN(*this);
-        ++value;
+	PhysicalNumber pN = *this;
+        value++;
 	return pN;
  }
  PhysicalNumber PhysicalNumber::operator+ () const{
