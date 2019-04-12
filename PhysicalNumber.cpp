@@ -35,7 +35,7 @@ double value;
  }
  PhysicalNumber PhysicalNumber::operator++(int) {
 	PhysicalNumber pN(this->value,this->u);
-        this->value++;
+        value++;
 	return pN;
  }
  PhysicalNumber PhysicalNumber::operator+ () const{
@@ -50,12 +50,12 @@ double value;
 	return *this;
   }
  PhysicalNumber PhysicalNumber::operator-- () {
-        double sum = value-1;
-	return PhysicalNumber(sum,this->u);
+       value-=1;
+	return *this;
  }
  PhysicalNumber PhysicalNumber::operator--(int) {
        PhysicalNumber pN(this->value,this->u);
-        this->value--;
+        value--;
 	return pN;
  }
  PhysicalNumber PhysicalNumber::operator- (){
@@ -103,7 +103,6 @@ double value;
         else  if(p.u == Unit::SEC) os<<p.value<<"[sec]";
         else  if(p.u == Unit::MIN) os<<p.value<<"[min]";
         else  if(p.u == Unit::HOUR) os<<p.value<<"[hour]";
-
 	return os;
   }
 
