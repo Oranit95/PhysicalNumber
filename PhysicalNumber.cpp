@@ -30,12 +30,12 @@ double value;
 	return *this;
  }
  PhysicalNumber PhysicalNumber::operator++ () {
-	value=value+1;
+	value++;
 	return *this;
  }
  PhysicalNumber PhysicalNumber::operator++(int) {
 	PhysicalNumber pN(value,u);
-        value=value+1;
+        value++;
 	return pN;
  }
  PhysicalNumber PhysicalNumber::operator+ () const{
@@ -50,7 +50,7 @@ double value;
 	return *this;
   }
  PhysicalNumber PhysicalNumber::operator-- () {
-       value=value-1;
+       value--;
 	return *this;
  }
  PhysicalNumber PhysicalNumber::operator--(int) {
