@@ -137,10 +137,6 @@ double value;
 	  }
             p.value=newValue;
         }
-        else
-        {
-            auto errorState = is.rdstate(); // remember error state
-        }
    }  
     return is;
   }
