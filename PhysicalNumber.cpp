@@ -26,7 +26,7 @@ double value;
  }
 
  PhysicalNumber PhysicalNumber::operator+= (const PhysicalNumber &a)  {
-	this->value=change(*this, a)+value;
+	this->value= value + change(*this, a);
 	return *this;
  }
  PhysicalNumber PhysicalNumber::operator++ () {
