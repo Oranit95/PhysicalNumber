@@ -113,18 +113,18 @@ double value;
     int unitStart = s.find("[");
     int unitEnd= s.find("]");
     if(unitStart<0||unitEnd<0||unitEnd!=s.length()-1) error = true;
-    string newUnit=s.substr(unitStart+1,unitEnd-unitStart-1);	
-    if(!error){
-    if(newUnit.compare("cm")== 0 || newUnit.compare("CM")== 0) p.u = Unit::CM;
-    else if (newUnit.compare("m")== 0 || newUnit.compare("M")== 0) p.u = Unit::M;
-    else if (newUnit.compare("km")== 0 || newUnit.compare("KM")== 0) p.u = Unit::KM;
-    else if (newUnit.compare("sec")== 0 || newUnit.compare("SEC")== 0) p.u = Unit::SEC;
-    else if (newUnit.compare("min")== 0 || newUnit.compare("MIN")== 0) p.u = Unit::MIN;
-    else if (newUnit.compare("hour")== 0 || newUnit.compare("HOUR")== 0) p.u = Unit::HOUR;
-    else if (newUnit.compare("g")== 0 || newUnit.compare("G")== 0) p.u = Unit::G;
-    else if (newUnit.compare("kg")== 0 || newUnit.compare("KG")== 0) p.u = Unit::KG;
-    else if (newUnit.compare("ton")== 0 || newUnit.compare("TON")== 0) p.u = Unit::TON;
-    else  error=true;
+    if(!error) {
+      string newUnit=s.substr(unitStart+1,unitEnd-unitStart-1);	
+      if(newUnit.compare("cm")== 0 || newUnit.compare("CM")== 0) p.u = Unit::CM;
+      else if (newUnit.compare("m")== 0 || newUnit.compare("M")== 0) p.u = Unit::M;
+      else if (newUnit.compare("km")== 0 || newUnit.compare("KM")== 0) p.u = Unit::KM;
+      else if (newUnit.compare("sec")== 0 || newUnit.compare("SEC")== 0) p.u = Unit::SEC;
+      else if (newUnit.compare("min")== 0 || newUnit.compare("MIN")== 0) p.u = Unit::MIN;
+      else if (newUnit.compare("hour")== 0 || newUnit.compare("HOUR")== 0) p.u = Unit::HOUR;
+      else if (newUnit.compare("g")== 0 || newUnit.compare("G")== 0) p.u = Unit::G;
+      else if (newUnit.compare("kg")== 0 || newUnit.compare("KG")== 0) p.u = Unit::KG;
+      else if (newUnit.compare("ton")== 0 || newUnit.compare("TON")== 0) p.u = Unit::TON;
+      else  error=true;
     }
     double newValue;
     if (error) auto errorState = is.rdstate();
