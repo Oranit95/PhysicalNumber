@@ -139,8 +139,7 @@ double value;
 	  }
             p.value=newValue;
 	    cout<<"value after convert:  "<<newValue<<endl;
-	    cout<<"unit after convert:  "<<newUnit<<endl;
-
+	    cout<<"unit after convert:  "<<s.substr(unitStart+1,unitEnd-unitStart-1)<<endl;
     }  
     return is;
   }
