@@ -110,26 +110,10 @@ double value;
   istream& operator>>(istream& is, PhysicalNumber& p){
     string s;
     is>>s;
+    bool error = false;
     int unitStart = s.find("[");
     int unitEnd= s.find("]");
-    if(unitStart<0||unitEnd<0) {
-	 throw std::invalid_argument( "Not suitable input in brackets:   "+s );
-    }
-    double newValue;
-    bool isNumber=true;
-	//checking if the string before the '[' is double
-    int dotCount = 0;
-    string DOUBLE = s.substr(0,unitStart);
-    if (DOUBLE.empty()) isNumber= false;
-    for (char c : DOUBLE)
-    {
-       if ( !(isdigit(c) || c == '.' ) || dotCount > 1 ) isNumber= false;
-       dotCount += (c == '.');
-    }
-	//done checking 
-    if (!isNumber)  throw std::invalid_argument( "Not suitable input in value!!!" + s );
-    istringstream(s.substr(0,unitStart))>>newValue;
-    p.value=newValue;
+    if(unitStart<0||unitEnd<0) error = true;
     string newUnit=s.substr(unitStart+1,unitEnd-unitStart-1);	
     if(newUnit.compare("cm")== 0 || newUnit.compare("CM")== 0) p.u = Unit::CM;
     else if (newUnit.compare("m")== 0 || newUnit.compare("M")== 0) p.u = Unit::M;
@@ -140,8 +124,24 @@ double value;
     else if (newUnit.compare("g")== 0 || newUnit.compare("G")== 0) p.u = Unit::G;
     else if (newUnit.compare("kg")== 0 || newUnit.compare("KG")== 0) p.u = Unit::KG;
     else if (newUnit.compare("ton")== 0 || newUnit.compare("TON")== 0) p.u = Unit::TON;
-    else   throw std::invalid_argument( "Not suitable input in name!!!" + s );
-	  
+    else  error=true;
+    double newValue;
+    if (error) auto errorState = is.rdstate();
+    else {
+          try {
+             newValue = stod(s.substr(0,unitStart));
+	  }
+	  catch (exception &e) { 
+		  auto errorState = is.rdstate();
+		  return is;
+	  }
+            p.value=newValue;
+        }
+        else
+        {
+            auto errorState = is.rdstate(); // remember error state
+        }
+   }  
     return is;
   }
 
