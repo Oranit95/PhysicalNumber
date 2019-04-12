@@ -30,7 +30,7 @@ double value;
 	return *this;
  }
  PhysicalNumber PhysicalNumber::operator++ () {
-	value++;
+	value=value+1;
 	return *this;
  }
  PhysicalNumber PhysicalNumber::operator++(int) {
@@ -50,7 +50,7 @@ double value;
 	return *this;
   }
  PhysicalNumber PhysicalNumber::operator-- () {
-       value-=1;
+       value=value-1;
 	return *this;
  }
  PhysicalNumber PhysicalNumber::operator--(int) {
