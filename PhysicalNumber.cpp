@@ -34,7 +34,7 @@ double value;
 	return *this;
  }
  PhysicalNumber PhysicalNumber::operator++(int) {
-	PhysicalNumber pN(this->value,this->u);
+	PhysicalNumber pN(this);
         value++;
 	return pN;
  }
