@@ -109,6 +109,7 @@ double value;
   istream& operator>>(istream& is, PhysicalNumber& p){
     string s;
     is>>s;
+    cout<<"input:   "<<s<<endl;
     bool error = false;
     int unitStart = s.find("[");
     int unitEnd= s.find("]");
@@ -137,6 +138,9 @@ double value;
 		  return is;
 	  }
             p.value=newValue;
+	    cout<<"value after convert:  "<<newValue<<endl;
+	    cout<<"unit after convert:  "<<newUnit<<endl;
+
     }  
     return is;
   }
