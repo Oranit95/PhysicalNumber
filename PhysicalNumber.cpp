@@ -110,14 +110,10 @@ double value;
   istream& operator>>(istream& is, PhysicalNumber& p){
     string s;
     is>>s;
-    cout<<"input is "<<s<<endl;
     int unitStart = s.find("[");
     int unitEnd= s.find("]");
     if(unitStart<0||unitEnd<0) {
-	 	     cout<<"input that caused brackets exception is "<<s<<endl;
-
 	 throw std::invalid_argument( "Not suitable input in brackets!!!" );
-
     }
     double newValue;
     bool isNumber=true;
@@ -125,11 +121,17 @@ double value;
     int dotCount = 0;
     string DOUBLE = s.substr(0,unitStart);
     if (DOUBLE.empty()) isNumber= false;
-    for (char c : DOUBLE)
+    for (int i = 0; i<s.length();i++)
     {
-       if ( !(isdigit(c) || c == '.' ) || dotCount > 1 ) isNumber= false;
-       dotCount += (c == '.');
+	if ( !(isdigit(s[i]) ||s[i] == '.' ) || dotCount > 1 ){
+		if(s[i]='-' && i==0){
+		  isNumber= true;  
+		}
+		else isNumber= false;  
+	}
+	    dotCount += (s[i] == '.');
     }
+	  
 	//done checking 
     if (!isNumber)  throw std::invalid_argument( "Not suitable input in value!!!" );
     istringstream(s.substr(0,unitStart))>>newValue;
