@@ -124,7 +124,7 @@ double value;
     for (int i = 0; i<s.length();i++)
     {
 	if ( !(isdigit(s[i]) ||s[i] == '.' ) || dotCount > 1 ){
-		if(s[i]='-' && i==0){
+		if(s[i]=='-' && i==0){
 		  isNumber= true;  
 		}
 		else isNumber= false;  
