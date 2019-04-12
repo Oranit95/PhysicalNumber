@@ -46,7 +46,7 @@ double value;
 	return PhysicalNumber(diff,this->u);
  }
  PhysicalNumber PhysicalNumber::operator-= (const PhysicalNumber &a) {
-	this->value=change(*this, a)-value;
+	this->value=change(*this, a)-(value);
 	return *this;
   }
  PhysicalNumber PhysicalNumber::operator-- () {
