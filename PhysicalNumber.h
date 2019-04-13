@@ -13,7 +13,7 @@ class PhysicalNumber{
  PhysicalNumber(double number, Unit u) ;
  PhysicalNumber operator+(const PhysicalNumber &a) const ;
  PhysicalNumber operator+=(const PhysicalNumber &a) ;
- PhysicalNumber operator++() ;
+ PhysicalNumber& operator++() ;
  PhysicalNumber operator++(int) ;
  PhysicalNumber operator+() const;
  PhysicalNumber operator-(const PhysicalNumber &a) const;
