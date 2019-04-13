@@ -22,7 +22,7 @@ double value;
 
  PhysicalNumber PhysicalNumber::operator+ (const PhysicalNumber &a) const {
 	double sum = change(*this, a)+value;
-	return PhysicalNumber(sum,this->u);
+	return PhysicalNumber(sum,u);
  }
 
  PhysicalNumber PhysicalNumber::operator+= (const PhysicalNumber &a)  {
@@ -30,7 +30,7 @@ double value;
 	return *this;
  }
  PhysicalNumber PhysicalNumber::operator++ () {//prefix ++
-	++this->value;
+	++value;
 	return *this;
  }
  PhysicalNumber PhysicalNumber::operator++(int) {//postfix ++
@@ -43,7 +43,7 @@ double value;
  }
  PhysicalNumber PhysicalNumber::operator- (const PhysicalNumber &a) const{
 	double diff = value-change(*this, a);
-	return PhysicalNumber(diff,this->u);
+	return PhysicalNumber(diff,u);
  }
  PhysicalNumber PhysicalNumber::operator-= (const PhysicalNumber &a) {
 	this->value = value - change(*this, a);
@@ -59,36 +59,36 @@ double value;
 	return pN;
  }
  PhysicalNumber PhysicalNumber::operator- (){
-        return  PhysicalNumber(value*-1,this->u);
+        return  PhysicalNumber(value*-1,u);
  }
  bool PhysicalNumber::operator<(const PhysicalNumber &a){
         double num = change(*this, a);
-        if (this->value < num) return true;
+        if (value < num) return true;
         return false;      
  }
  bool PhysicalNumber::operator>(const PhysicalNumber &a){
         double num = change(*this, a);
-        if (this->value > num) return true;
+        if (value > num) return true;
         return false; 
  }
  bool PhysicalNumber::operator<=(const PhysicalNumber &a){
         double num = change(*this, a);
-        if (this->value <= num) return true;
+        if (value <= num) return true;
         return false;      
  }
  bool PhysicalNumber::operator>=(const PhysicalNumber &a){
         double num = change(*this, a);
-        if (this->value >= num) return true;
+        if (value >= num) return true;
         return false;      
  }
  bool PhysicalNumber::operator!=(const PhysicalNumber &a){
         double num = change(*this, a);
-        if (this->value == num) return false;
+        if (value == num) return false;
         return true;      
  }
  bool PhysicalNumber::operator==(const PhysicalNumber &a){
         double num = change(*this, a);
-        if (this->value == num) return true;
+        if (value == num) return true;
         return false;      
  }
 
