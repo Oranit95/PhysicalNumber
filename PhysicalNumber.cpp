@@ -29,7 +29,7 @@ double value;
 	this->value = change(*this, a) + value;;
 	return *this;
  }
- PhysicalNumber PhysicalNumber::operator++ () {//prefix ++
+ PhysicalNumber& PhysicalNumber::operator++ () {//prefix ++
 	++value;
 	return *this;
  }
