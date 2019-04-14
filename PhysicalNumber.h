@@ -31,7 +31,6 @@ class PhysicalNumber{
  friend istream& operator>> (istream& is, PhysicalNumber& p);
  double change(const PhysicalNumber &a, const PhysicalNumber &b) const;
  PhysicalNumber(const PhysicalNumber &a);
- ~PhysicalNumber();
 
 
 
