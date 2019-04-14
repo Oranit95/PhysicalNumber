@@ -112,7 +112,7 @@ double value;
     bool error = false;
     int unitStart = s.find("[");
     int unitEnd= s.find("]");
-    if(unitStart<0||unitEnd<0||unitEnd!=s.length()-1) error = true;
+    if(unitStart<=0||unitEnd<0||unitEnd!=s.length()-1) error = true;
     if(!error) {
       string newUnit=s.substr(unitStart+1,unitEnd-unitStart-1);	
       if(newUnit.compare("cm")== 0 || newUnit.compare("CM")== 0) p.u = Unit::CM;
