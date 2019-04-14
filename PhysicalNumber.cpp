@@ -14,6 +14,9 @@ double value;
 	this->u=u;
 	this->value=value;
  }
+PhysicalNumber::~PhysicalNumber(double value, Unit u){
+	delete(this);
+ }
  
  PhysicalNumber::PhysicalNumber(const PhysicalNumber &a) {
 	this->value=a.value;
