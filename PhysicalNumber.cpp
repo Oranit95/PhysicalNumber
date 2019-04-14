@@ -14,7 +14,7 @@ double value;
 	this->u=u;
 	this->value=value;
  }
-PhysicalNumber::~PhysicalNumber(double value, Unit u){
+PhysicalNumber::~PhysicalNumber(){
 	delete(this);
  }
  
