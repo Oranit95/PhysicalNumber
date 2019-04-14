@@ -15,7 +15,9 @@ double value;
 	this->value=value;
  }
 PhysicalNumber::~PhysicalNumber(){
-	delete(this);
+	delete(u);
+	delete(value);
+
  }
  
  PhysicalNumber::PhysicalNumber(const PhysicalNumber &a) {
