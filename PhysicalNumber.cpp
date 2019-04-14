@@ -134,7 +134,7 @@ double value;
 	  }
 	  catch (exception &e) { 
 		  auto errorState = is.rdstate();
-		  p=NULL;
+		  p.u=NULL;
 		  return is;
 	  }
             p.value=newValue;
