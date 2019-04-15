@@ -6,92 +6,125 @@
 using namespace std;
  namespace ariel{
 
+// the vairables of the class
 ariel::Unit u;
 double value;
 
-
+// constructor
  PhysicalNumber::PhysicalNumber(double value, Unit u){
 	this->u=u;
 	this->value=value;
  }
 
+//copy constructor
  PhysicalNumber::PhysicalNumber(const PhysicalNumber &a) {
 	this->value=a.value;
 	this->u=a.u;
  }
 
+//addition of two numbers
  PhysicalNumber PhysicalNumber::operator+ (const PhysicalNumber &a) const {
 	double sum = change(*this, a)+value;
 	return PhysicalNumber(sum,u);
  }
 
+//addition and assigning
  PhysicalNumber PhysicalNumber::operator+= (const PhysicalNumber &a)  {
 	this->value = change(*this, a) + value;;
 	return *this;
  }
- PhysicalNumber& PhysicalNumber::operator++ () {//prefix ++
+
+//prefix ++
+ PhysicalNumber& PhysicalNumber::operator++ () {
 	++value;
 	return *this;
  }
- PhysicalNumber PhysicalNumber::operator++(int) {//postfix ++
+
+//postfix ++
+ PhysicalNumber PhysicalNumber::operator++(int) {
 	PhysicalNumber pN(*this);
         value++;
 	return pN;
  }
+
+//return the physical number with no change : unary +
  PhysicalNumber PhysicalNumber::operator+ () const{
         return *this;
  }
+
+//subtraction of two numbers
  PhysicalNumber PhysicalNumber::operator- (const PhysicalNumber &a) const{
 	double diff = value-change(*this, a);
 	return PhysicalNumber(diff,u);
  }
+
+//subtraction and assigning
  PhysicalNumber PhysicalNumber::operator-= (const PhysicalNumber &a) {
 	this->value = value - change(*this, a);
 	return *this;
   }
+
+//prefix --
  PhysicalNumber PhysicalNumber::operator-- () {
        value--;
 	return *this;
  }
+
+//postfix --
  PhysicalNumber PhysicalNumber::operator--(int) {
        PhysicalNumber pN(this->value,this->u);
         value--;
 	return pN;
  }
+
+//return the physical number * -1 : unary -
  PhysicalNumber PhysicalNumber::operator- (){
         return  PhysicalNumber(value*-1,u);
  }
+
+//check if the our physical number is smaller then other physical number
  bool PhysicalNumber::operator<(const PhysicalNumber &a){
         double num = change(*this, a);
         if (value < num) return true;
         return false;      
  }
+
+//check if the our physical number is bigger then other physical number
  bool PhysicalNumber::operator>(const PhysicalNumber &a){
         double num = change(*this, a);
         if (value > num) return true;
         return false; 
  }
+
+//check if the our physical number is smaller or equal other physical number
  bool PhysicalNumber::operator<=(const PhysicalNumber &a){
         double num = change(*this, a);
         if (value <= num) return true;
         return false;      
  }
+
+//check if the our physical number is bigger or equal other physical number
  bool PhysicalNumber::operator>=(const PhysicalNumber &a){
         double num = change(*this, a);
         if (value >= num) return true;
         return false;      
  }
+
+//check if the our physical number is not equal to other physical number
  bool PhysicalNumber::operator!=(const PhysicalNumber &a){
         double num = change(*this, a);
         if (value == num) return false;
         return true;      
  }
+
+//check if the our physical number is equal to other physical number
  bool PhysicalNumber::operator==(const PhysicalNumber &a){
         double num = change(*this, a);
         if (value == num) return true;
         return false;      
  }
 
+//this function get a physical number and return it as ostream 
    ostream& operator<<(ostream& os, const PhysicalNumber& p){
 
 	if(p.u == Unit::G) os<<p.value<<"[g]";
@@ -106,6 +139,7 @@ double value;
 	return os;
   }
 
+//this function get a istream and assigns the input to a physical number
   istream& operator>>(istream& is, PhysicalNumber& p){
     string s;
     is>>s;
@@ -165,6 +199,7 @@ double value;
     return is;
   }
 
+// this function convert types of units
 double PhysicalNumber::change(const PhysicalNumber &a,const PhysicalNumber &b) const
 {
 	switch (a.u)
@@ -284,8 +319,3 @@ double PhysicalNumber::change(const PhysicalNumber &a,const PhysicalNumber &b) c
 
 
 };
-
-
-
-
-
