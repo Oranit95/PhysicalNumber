@@ -29,7 +29,7 @@ double value;
  }
 
 //addition and assigning
- PhysicalNumber PhysicalNumber::operator+= (const PhysicalNumber &a)  {
+ PhysicalNumber& PhysicalNumber::operator+= (const PhysicalNumber &a)  {
 	this->value = change(*this, a) + value;;
 	return *this;
  }
@@ -59,13 +59,13 @@ double value;
  }
 
 //subtraction and assigning
- PhysicalNumber PhysicalNumber::operator-= (const PhysicalNumber &a) {
+ PhysicalNumber& PhysicalNumber::operator-= (const PhysicalNumber &a) {
 	this->value = value - change(*this, a);
 	return *this;
   }
 
 //prefix --
- PhysicalNumber PhysicalNumber::operator-- () {
+ PhysicalNumber& PhysicalNumber::operator-- () {
        value--;
 	return *this;
  }
