@@ -12,14 +12,14 @@ class PhysicalNumber{
  public:
  PhysicalNumber(double number, Unit u) ;
  PhysicalNumber operator+(const PhysicalNumber &a) const ;
- PhysicalNumber operator+=(const PhysicalNumber &a) ;
+ PhysicalNumber& operator+=(const PhysicalNumber &a) ;
  PhysicalNumber& operator++() ;
  PhysicalNumber operator++(int) ;
  PhysicalNumber operator+() const;
  PhysicalNumber operator-(const PhysicalNumber &a) const;
  PhysicalNumber operator-() ;
- PhysicalNumber operator-=(const PhysicalNumber &a) ;
- PhysicalNumber operator--() ;
+ PhysicalNumber& operator-=(const PhysicalNumber &a) ;
+ PhysicalNumber& operator--() ;
  PhysicalNumber operator--(int) ;
  bool operator<(const PhysicalNumber &a);
  bool operator>(const PhysicalNumber &a);
@@ -32,10 +32,7 @@ class PhysicalNumber{
  double change(const PhysicalNumber &a, const PhysicalNumber &b) const;
  PhysicalNumber(const PhysicalNumber &a);
 
-
-
-
-
 };
+ ostream& operator<< (ostream& os, const PhysicalNumber& p);
+ istream& operator>> (istream& is, PhysicalNumber& p);
 }
-
